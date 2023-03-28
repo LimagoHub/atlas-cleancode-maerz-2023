@@ -2,11 +2,24 @@
 //
 
 #include <iostream>
+
+#include "ComputerPlayer.h"
 #include "GameClient.h"
+#include "HumanPlayer.h"
 #include "TakeGameImpl.h"
+#include "ConsolenWriter.h"
+
+
+
 int main()
 {
-    TakeGameImpl impl;
+
+	ConsolenWriter writer;
+    TakeGameImpl impl{writer};
+	HumanPlayer human{"Mensch"};
+	ComputerPlayer computer{ "Computer" };
+	impl.addPlayer(&human);
+	impl.addPlayer(&computer);
 	GameClient client{ impl };
 	client.go();
 }

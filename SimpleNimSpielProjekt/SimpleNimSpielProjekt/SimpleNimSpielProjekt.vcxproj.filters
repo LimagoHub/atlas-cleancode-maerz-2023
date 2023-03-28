@@ -22,6 +22,15 @@
     <Filter Include="Headerdateien\game\takegame">
       <UniqueIdentifier>{0b5ee6af-add4-413c-aa91-c5797a69e953}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\game\takegame\player">
+      <UniqueIdentifier>{7a1b5f4a-3875-4d04-b0e1-456415987231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\game\player">
+      <UniqueIdentifier>{25c502f9-7635-4336-99ee-344f4dd5a008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\IO">
+      <UniqueIdentifier>{bf446f3d-849b-489a-bc41-9cc096c53405}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimpleNimSpielProjekt.cpp">
@@ -37,6 +46,30 @@
     </ClInclude>
     <ClInclude Include="TakeGameImpl.h">
       <Filter>Headerdateien\game\takegame</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractTakeGamePlayer.h">
+      <Filter>Headerdateien\game\takegame\player</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanPlayer.h">
+      <Filter>Headerdateien\game\takegame\player</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayer.h">
+      <Filter>Headerdateien\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputerPlayer.h">
+      <Filter>Headerdateien\game\takegame\player</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractGamePlayer.h">
+      <Filter>Headerdateien\game\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Headerdateien\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsolenWriter.h">
+      <Filter>Headerdateien\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractGame.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

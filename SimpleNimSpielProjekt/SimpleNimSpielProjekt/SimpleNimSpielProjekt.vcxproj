@@ -142,9 +142,17 @@
     <ClCompile Include="SimpleNimSpielProjekt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractGame.h" />
+    <ClInclude Include="AbstractGamePlayer.h" />
+    <ClInclude Include="AbstractTakeGamePlayer.h" />
+    <ClInclude Include="ComputerPlayer.h" />
+    <ClInclude Include="ConsolenWriter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameClient.h" />
+    <ClInclude Include="GamePlayer.h" />
+    <ClInclude Include="HumanPlayer.h" />
     <ClInclude Include="TakeGameImpl.h" />
+    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

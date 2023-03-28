@@ -1,87 +1,41 @@
 #pragma once
 #include <iostream>
-#include "Game.h"
+#include <vector>
 
-class TakeGameImpl : public Game
+#include "AbstractGame.h"
+#include "GamePlayer.h"
+#include "Writer.h"
+
+
+
+
+class TakeGameImpl : public AbstractGame<int,int>
 {
 
 public:
 
-	TakeGameImpl() :stones(23) {}
 
-	void play() override
+	TakeGameImpl(Writer& writer)
+		: AbstractGame<int, int>(writer)
 	{
-		while (!isGameOver())
-		{
-			playRounds();
-		}
+		set_board(23);
 	}
 
-private:
-	int stones;
-	int zug;
-
-	void playRounds()
-	{
-		playersTurn();
-		computerTurn();
-	}
-	
-	void playersTurn()
-	{
-		if (isGameOver()) return;
+protected:
 		
-		
-		while(true)
-		{
-			std::cout << "Es gibt " << stones << " Steine. Bitte nehmen Sie 1,2 oder 3!" << std::endl;
-			std::cin >> zug;
-			if (zug >= 1 && zug <= 3) break;
-			std::cout << "Ungueltiger Zug" << std::endl;
-		}
-		terminateTurn("Mensch");
-	}
-
-	
-
-	void computerTurn()
+	bool isTurnValid()
 	{
-		if (isGameOver()) return;
-		const int zuege[] = { 3,1,1,2 };
-		
-		zug = zuege[stones % 4];
-		std::cout << "Computer nimmt " << zug << " Steine." << std::endl;
-
-		terminateTurn("Computer");
+		return get_turn() >= 1 && get_turn() <= 3;
 	}
-
-
-	
-
-	void terminateTurn(std::string playersName)
-	{
-		updateBoard();
-		printGameoverMessageIfGameIsOver(playersName);
-	}
-
-	
-	void printGameoverMessageIfGameIsOver(std::string playersName)
-	{
-		if (isGameOver())
-		{
-			std::cout << playersName << " hat verloren";
-		}
-	}
-	
 	void updateBoard()
 	{
-		stones -= zug;
+		set_board(get_board() - get_turn());
 	}
 
 	bool isGameOver()
 	{
-		return stones < 1;
+		return get_board() < 1 || get_players().empty();
 	}
-
+	
 
 };
