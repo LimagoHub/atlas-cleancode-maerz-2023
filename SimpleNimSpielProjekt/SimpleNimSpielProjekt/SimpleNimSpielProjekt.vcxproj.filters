@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien\game">
+      <UniqueIdentifier>{350608d3-8faf-440e-beb0-f7c6ccc3e6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\client">
+      <UniqueIdentifier>{a66b39fd-6df1-450c-93e7-1671a8d922e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\game\takegame">
+      <UniqueIdentifier>{0b5ee6af-add4-413c-aa91-c5797a69e953}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SimpleNimSpielProjekt.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Headerdateien\game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClient.h">
+      <Filter>Headerdateien\client</Filter>
+    </ClInclude>
+    <ClInclude Include="TakeGameImpl.h">
+      <Filter>Headerdateien\game\takegame</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
