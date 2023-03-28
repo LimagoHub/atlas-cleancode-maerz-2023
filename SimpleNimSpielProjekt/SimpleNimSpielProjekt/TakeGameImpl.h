@@ -7,11 +7,11 @@ class TakeGameImpl : public Game
 
 public:
 
-	TakeGameImpl() :stones(23), gameover(false) {}
+	TakeGameImpl() :stones(23) {}
 
 	void play() override
 	{
-		while (!gameover)
+		while (!isGameOver())
 		{
 			playRounds();
 		}
@@ -19,16 +19,19 @@ public:
 
 private:
 	int stones;
-	bool gameover;
+	int zug;
 
 	void playRounds()
 	{
 		playersTurn();
 		computerTurn();
 	}
+	
 	void playersTurn()
 	{
-		int zug;
+		if (isGameOver()) return;
+		
+		
 		while(true)
 		{
 			std::cout << "Es gibt " << stones << " Steine. Bitte nehmen Sie 1,2 oder 3!" << std::endl;
@@ -36,29 +39,48 @@ private:
 			if (zug >= 1 && zug <= 3) break;
 			std::cout << "Ungueltiger Zug" << std::endl;
 		}
-		stones -= zug;
+		terminateTurn("Mensch");
 	}
+
+	
 
 	void computerTurn()
 	{
+		if (isGameOver()) return;
 		const int zuege[] = { 3,1,1,2 };
-	
-		if(stones < 1)
-		{
-			std::cout << "Du Loser!" << std::endl;
-			gameover = true;
-			return;
-		}
-		if (stones == 1)
-		{
-			std::cout << "Du hast nur Glueck gehabt" << std::endl;
-			gameover = true;
-			return;
-		}
-		int zug = zuege[stones % 4];
-		std::cout << "Computer nimmt " << zug << " Steine." << std::endl;
-		stones -= zug;
 		
+		zug = zuege[stones % 4];
+		std::cout << "Computer nimmt " << zug << " Steine." << std::endl;
+
+		terminateTurn("Computer");
+	}
+
+
+	
+
+	void terminateTurn(std::string playersName)
+	{
+		updateBoard();
+		printGameoverMessageIfGameIsOver(playersName);
+	}
+
+	
+	void printGameoverMessageIfGameIsOver(std::string playersName)
+	{
+		if (isGameOver())
+		{
+			std::cout << playersName << " hat verloren";
+		}
+	}
+	
+	void updateBoard()
+	{
+		stones -= zug;
+	}
+
+	bool isGameOver()
+	{
+		return stones < 1;
 	}
 
 
