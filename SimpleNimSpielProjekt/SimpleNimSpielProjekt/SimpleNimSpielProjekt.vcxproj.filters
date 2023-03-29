@@ -69,6 +69,9 @@
       <Filter>Headerdateien\IO</Filter>
     </ClInclude>
     <ClInclude Include="AbstractGame.h">
+      <Filter>Headerdateien\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Liste.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

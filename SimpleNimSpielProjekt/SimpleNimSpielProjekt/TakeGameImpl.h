@@ -22,17 +22,23 @@ public:
 	}
 
 protected:
-		
-	bool isTurnValid()
+
+
+	/*void prepare() override
+	{
+		write(get_current_player()->getName() + " ist am Zug!");
+	}*/
+
+	bool isTurnValid() override
 	{
 		return get_turn() >= 1 && get_turn() <= 3;
 	}
-	void updateBoard()
+	void updateBoard() override
 	{
 		set_board(get_board() - get_turn());
 	}
 
-	bool isGameOver()
+	bool isGameOver() override
 	{
 		return get_board() < 1 || get_players().empty();
 	}

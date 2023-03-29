@@ -25,6 +25,7 @@ public:
 	
 	void play() override
 	{
+		/**/
 		while (!isGameOver())
 		{
 			playRounds();
@@ -39,30 +40,42 @@ private:
 	std::vector<GamePlayer<BOARD, TURN>*> players;
 	GamePlayer<BOARD, TURN>* currentPlayer;
 	Writer& writer;
+
 	
+
 	void playRounds()
 	{
-		for (auto player : players)
-		{
-			set_current_player(player);
-			playSingleTurn();
-		}
+		for (auto player : players) prepareSingleTurn(player);
+		
 	}
+
+	void prepareSingleTurn(GamePlayer<BOARD, TURN>* player)
+	{
+		set_current_player(player);
+		playSingleTurn();
+	}
+
+	
 
 	void playSingleTurn() // Integration
 	{
-		if (isGameOver()) return;
+		if (initTurn()) return;
 		executeTurn();
 		terminateTurn();
 	}
 
+	
+
+	bool initTurn()
+	{
+		if (isGameOver()) return true;
+		prepare();
+		return false;
+	}
 	void executeTurn()
 	{
 
-		do
-		{
-			turn = currentPlayer->doTurn(board);
-		} while (playerTurnIsInvalid());
+		do turn = currentPlayer->doTurn(board);  while (playerTurnIsInvalid());
 
 	}
 
@@ -80,10 +93,10 @@ private:
 	}
 	void printGameoverMessageIfGameIsOver()
 	{
-		if (isGameOver())
-		{
+		if (isGameOver()) {
 			write(currentPlayer->getName() + " hat verloren");
 		}
+		
 	}
 
 
@@ -93,6 +106,12 @@ protected:
 	virtual bool isTurnValid() = 0;
 	virtual void updateBoard() = 0;
 	virtual bool isGameOver() = 0;
+
+	virtual void prepare()
+	{
+		// NOP
+	}
+
 	
 	std::vector<GamePlayer<BOARD, TURN>*> get_players() const
 	{
@@ -105,6 +124,7 @@ protected:
 
 	void set_current_player(GamePlayer<BOARD, TURN>* const current_player)
 	{
+		// TODO Besserer Namen Ueberlegen
 		currentPlayer = current_player;
 	}
 

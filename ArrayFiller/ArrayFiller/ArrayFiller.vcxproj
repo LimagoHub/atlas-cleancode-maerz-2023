@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{666cc379-065a-41c2-a7ee-a2daa075bce6}</ProjectGuid>
-    <RootNamespace>SimpleNimSpielProjekt</RootNamespace>
+    <ProjectGuid>{5068e8b9-9dae-4cb0-bdd1-19b1dad1769d}</ProjectGuid>
+    <RootNamespace>ArrayFiller</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,21 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SimpleNimSpielProjekt.cpp" />
+    <ClCompile Include="ArrayFiller.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractGame.h" />
-    <ClInclude Include="AbstractGamePlayer.h" />
-    <ClInclude Include="AbstractTakeGamePlayer.h" />
-    <ClInclude Include="ComputerPlayer.h" />
-    <ClInclude Include="ConsolenWriter.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameClient.h" />
-    <ClInclude Include="GamePlayer.h" />
-    <ClInclude Include="HumanPlayer.h" />
-    <ClInclude Include="Liste.h" />
-    <ClInclude Include="TakeGameImpl.h" />
-    <ClInclude Include="Writer.h" />
+    <ClInclude Include="ArrayClient.h" />
+    <ClInclude Include="ArrayFactory.h" />
+    <ClInclude Include="item_generator.h" />
+    <ClInclude Include="mersenne_twister_number_generator.h" />
+    <ClInclude Include="mersenne_twister_number_generator_factory.h" />
+    <ClInclude Include="number_generator.h" />
+    <ClInclude Include="number_generator_factory.h" />
+    <ClInclude Include="stopwatch.h" />
+    <ClInclude Include="stopwatch_impl.h" />
+    <ClInclude Include="ThreadedArrayFactoryImpl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
