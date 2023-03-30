@@ -13,6 +13,10 @@ public class Fenster extends Frame {
         Button button = new Button("Drück mich");
         button.addActionListener(e->ausgabe());
         add(button);
+
+
+      
+
     }
 
 
